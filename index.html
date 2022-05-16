@@ -16,33 +16,26 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">bol.com</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
     </div>
 </nav>
 <!-- Page content-->
 <div class="container">
     <div class="text-center mt-5">
         <main class="form-signin">
-            <form>
-                <h1 class="h3 mb-3 fw-normal">P</h1>
+            <form action="dashboard.html">
+                <h1 class="h3 mb-3 fw-normal">Hello <span className="wave">👋🏻</span> Who are you?</h1>
 
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Timmy">
+                    <label for="floatingInput">Enter your name here!</label>
                 </div>
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
+                <h2 class="h3 mb-3 fw-normal">Where are you from?</h2>
+
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-lg btn-primary" type="submit">FTP</button>
+                    <button class="btn btn-lg btn-primary" type="submit">API</button>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
                 <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
             </form>
         </main>
