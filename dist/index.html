@@ -23,37 +23,39 @@
 <!-- Page content-->
 <div class="container">
     <div class="text-center mt-5">
-        <main class="form-signin">
-            <form action="dashboard.html">
-                <h1 class="h3 mb-3 fw-normal">Hello <span className="wave">👋🏻</span> Who are you?</h1>
 
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Timmy">
-                    <label for="floatingInput">Enter your name here!</label>
-                </div>
+        <h1 class="h3 mb-3 fw-normal">Hello <span className="wave">👋🏻</span> Who are you?</h1>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Timmy">
+            <label for="floatingInput">Enter your name here!</label>
+        </div>
 
-                <h2 class="h3 mb-3 fw-normal">Where are you from?</h2>
+        <h2 class="h3 mb-3 fw-normal">Where are you from?</h2>
 
-                <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-lg btn-primary" type="submit">FTP</button>
-                    <button class="btn btn-lg btn-primary" type="submit">API</button>
-                </div>
-
-            </form>
-        </main>
+        <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-lg btn-primary" type="submit" data-bs-toggle="modal"
+                    data-bs-target="#ftpModal">FTP
+            </button>
+            <button class="btn btn-lg btn-primary" type="submit" data-bs-toggle="modal"
+                    data-bs-target="#ftpModal">API
+            </button>
+            <button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="visually-hidden">Loading...</span>
+            </button>
+        </div>
 
         <!-- Footer-->
         <div id="footer"/>
     </div>
 </div>
+
+<div id="login-ftp-modal"/>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!--Jquery-->
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-<script>
-    $(function () {
-        $("#footer").load("/footer.html");
-    })
-</script>
+<script src="js/index.js"></script>
 </body>
 </html>
