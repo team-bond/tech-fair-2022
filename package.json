@@ -10,7 +10,9 @@
         "build:scss": "node scripts/build-scss.js",
         "clean": "node scripts/clean.js",
         "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
+        "start:debug": "npm run build && node scripts/start-debug.js",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "description": "A basic HTML starter template for Bootstrap",
     "keywords": [
@@ -43,6 +45,7 @@
         "browser-sync": "2.27.9",
         "chokidar": "3.5.3",
         "concurrently": "6.3.0",
+        "gh-pages": "^4.0.0",
         "postcss": "8.4.12",
         "prettier": "2.6.0",
         "pug": "3.0.2",
