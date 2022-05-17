@@ -27,7 +27,7 @@
         <form action="/" id="signUpForm">
             <h1 class="h3 mb-3 fw-normal">Hello <span className="wave">👋🏻</span> Who are you?</h1>
             <div class="form-floating">
-                <input type="text" class="form-control" id="userName" name="userName" placeholder="Timmy">
+                <input type="text" class="form-control" id="userName" name="userName" placeholder="Timmy" required>
                 <label for="userName">Enter your name here!</label>
             </div>
 
@@ -35,8 +35,8 @@
 
             <div class="d-grid gap-2 d-md-block">
                 <!--                TODO: Add a loader when submit the request -->
-                <button class="btn btn-lg btn-primary" value="ftp" id="ftpButton">FTP</button>
-                <button class="btn btn-lg btn-primary" value="api" id="apiButton">API</button>
+                <button class="btn btn-lg btn-primary" value="ftp" id="ftpButton" type="submit">FTP</button>
+                <button class="btn btn-lg btn-primary" value="api" id="apiButton" type="submit">API</button>
             </div>
         </form>
 
