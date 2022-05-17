@@ -26,7 +26,7 @@ $("button").click(function () {
     $.ajax({
         type: "POST",
         url: "https://fair-bond.herokuapp.com/api/flow/session",
-        data: JSON.stringify({name:name, source: source}),
+        data: JSON.stringify({name:name, source: source.toUpperCase()}),
         contentType: "application/json",
         encode: true,
     }).done(function (data) {
