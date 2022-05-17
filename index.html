@@ -14,11 +14,11 @@
 <body>
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg  bg-dark">
-    <a class="navbar-brand" href="/">
-        <div class="container text-center">
+    <div class="container text-center">
+        <a class="navbar-brand text-center" href="/">
             <img src='assets/bol-logo.png' alt="bol.com" width="140" height="43">
-        </div>
-    </a>
+        </a>
+    </div>
 </nav>
 <!-- Page content-->
 <div class="container">
@@ -27,16 +27,16 @@
         <form action="/" id="signUpForm">
             <h1 class="h3 mb-3 fw-normal">Hello <span className="wave">👋🏻</span> Who are you?</h1>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="userName" placeholder="Timmy">
-                <label for="floatingInput">Enter your name here!</label>
+                <input type="text" class="form-control" id="userName" name="userName" placeholder="Timmy">
+                <label for="userName">Enter your name here!</label>
             </div>
 
             <h2 class="h3 mb-3 fw-normal">Where are you from?</h2>
 
             <div class="d-grid gap-2 d-md-block">
                 <!--                TODO: Add a loader when submit the request -->
-                <button class="btn btn-lg btn-primary" id="ftpButton">FTP </button>
-                <button class="btn btn-lg btn-primary" id="apiButton">API </button>
+                <button class="btn btn-lg btn-primary" value="ftp" id="ftpButton">FTP</button>
+                <button class="btn btn-lg btn-primary" value="api" id="apiButton">API</button>
             </div>
         </form>
 

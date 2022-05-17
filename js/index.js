@@ -4,29 +4,37 @@ $(function () {
     $("#footer").load("/footer.html");
 })
 
-$("#signUpForm").submit(function (event) {
-    // Stop form from submitting normally
+$("button").click(function () {
     event.preventDefault();
 
-// TODO: change source
-//     $.ajax({
-//         type: "POST",
-//         url: "https://fair-bond.herokuapp.com/api/flow/session",
-//         data: JSON.stringify({name: $(this).find("input[name='userName']").val(), source: "API"}),
-//         contentType: "application/json",
-//         encode: true,
-//     }).done(function (data) {
-//         console.log(data);
-//     });
+    let source = $(this).val();
+    let name =  $('#userName').val()
+
+    if (source == "ftp"){
+
+    }else{
+
+    }
+
+    $("#modalUsername").html(name);
+
+    $("#ftpModal").modal('show');
+
+    // set the item in localStorage
+    localStorage.setItem('session', "text");
+
+    $.ajax({
+        type: "POST",
+        url: "https://fair-bond.herokuapp.com/api/flow/session",
+        data: JSON.stringify({name:name, source: source}),
+        contentType: "application/json",
+        encode: true,
+    }).done(function (data) {
+        console.log(data);
+    });
 });
 
 
-$(document).ready(function(){
-    $("#ftpButton").click(function(){
-        $("#ftpModal").modal('show');
-    });
+$(document).ready(function () {
 
-    $("#apiButton").click(function(){
-        $("#apiModal").modal('show');
-    });
 });
