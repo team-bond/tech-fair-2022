@@ -1,13 +1,13 @@
 {
     "title": "Bare",
-    "name": "startbootstrap-bare",
+    "name": "Tech Fair 2022",
     "version": "5.0.8",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
         "build:assets": "node scripts/build-assets.js",
         "build:scss": "node scripts/build-scss.js",
         "clean": "node scripts/clean.js",
-        "start": "npm run build && node scripts/start.js",
+        "start": "node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js",
         "deploy": "gh-pages -d dist"
     },
