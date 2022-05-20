@@ -23,14 +23,15 @@ $("#textSubmitButton").click(function () {
 
 $("#assetSubmitButtons").click(function () {
     let session = JSON.parse(localStorage.getItem('session'));
-    let source = session.sourceType.toLowerCase();
+    let sessionToken = session.traceId;
+
+    var file = document.getElementById('formFileLg').files[0];
 
     $.ajax({
         type: "POST",
-        url: "https://fair-bond.herokuapp.com/api/flow/session",
-        data: JSON.stringify({name: name, source: source.toUpperCase()}),
-        contentType: "application/json",
-        encode: true,
+        url: "https://fair-bond.herokuapp.com/api/flow/content/" + sessionToken + "/asset",
+        data: file,
+        processData: false
     }).done(function (data) {
         $("#ftpModal").modal('show');
         console.log(data);
