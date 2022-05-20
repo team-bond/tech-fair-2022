@@ -24,26 +24,14 @@ $("#textSubmitButton").click(function () {
 $("#assetSubmitButtons").click(function () {
     let session = JSON.parse(localStorage.getItem('session'));
     let sessionToken = session.traceId;
-    let source = session.sourceType.toLowerCase();
 
-    var f = $('#fileUpload').prop('files')[0];
-    var reader = new FileReader();
-    reader.readAsDataURL(f);
-
-    console.log(f)
-    console.log(reader)
-    console.log(reader.result)
-
-    var bytesToSend = [253, 0, 128, 1]
-    var bytesArray = new Uint8Array(bytesToSend);
+    var file = document.getElementById('formFileLg').files[0];
 
     $.ajax({
         type: "POST",
         url: "https://fair-bond.herokuapp.com/api/flow/content/" + sessionToken + "/asset",
-        data: bytesArray,
-        contentType: "application/octet-stream",
-        encode: true,
-        processData: false,
+        data: file,
+        processData: false
     }).done(function (data) {
         $("#ftpModal").modal('show');
         console.log(data);
