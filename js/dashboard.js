@@ -1,6 +1,6 @@
 $(function () {
-    $("#modal").load("/modals/dashboard-modal.html");
-    $("#footer").load("/footer.html");
+    $("#modal").load("/tech-fair-2022/modals/dashboard-modal.html");
+    $("#footer").load("/tech-fair-2022/footer.html");
 })
 
 $("#textSubmitButton").click(function () {
