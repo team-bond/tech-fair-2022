@@ -1,6 +1,6 @@
 $(function () {
-    $("#login-ftp-modal").load("../modals/login-ftp-modal.html");
-    $("#footer").load("/footer.html");
+    $("#login-ftp-modal").load("/tech-fair-2022/modals/login-ftp-modal.html");
+    $("#footer").load("/tech-fair-2022/footer.html");
 })
 
 $("button").click(function () {
