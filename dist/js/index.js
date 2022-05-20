@@ -1,6 +1,10 @@
 $(function () {
-    $("#login-ftp-modal").load("/modals/login-ftp-modal.html");
-    $("#footer").load("/footer.html");
+    let prefix = "/tech-fair-2022";
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+        prefix = "";
+    }
+    $("#login-ftp-modal").load(prefix + "/modals/login-ftp-modal.html");
+    $("#footer").load(prefix + "/footer.html");
 })
 
 $("button").click(function () {
