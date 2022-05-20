@@ -1,6 +1,9 @@
 $(function () {
-    $("#modal").load("/tech-fair-2022/modals/dashboard-modal.html");
-    $("#footer").load("/tech-fair-2022/footer.html");
+    let prefix = "/tech-fair-2022";
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+        prefix = "";
+    }
+    $("#footer").load(prefix + "/footer.html");
 })
 
 
