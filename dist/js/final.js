@@ -1,9 +1,5 @@
 $(function () {
-    let prefix = "/tech-fair-2022";
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-        prefix = "";
-    }
-    $("#footer").load(prefix + "/footer.html");
+    $("#footer").load("footer.html");
 })
 
 

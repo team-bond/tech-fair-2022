@@ -1,10 +1,6 @@
 $(function () {
-    let prefix = "/tech-fair-2022";
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-        prefix = "";
-    }
-    $("#modal").load( prefix + "/modals/dashboard-modal.html");
-    $("#footer").load(prefix + "/footer.html");
+    $("#modal").load( "modals/dashboard-modal.html");
+    $("#footer").load( "footer.html");
 })
 
 $("#textSubmitButton").click(function () {
