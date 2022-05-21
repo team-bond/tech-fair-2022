@@ -3,6 +3,18 @@ $(function () {
     $("#footer").load("footer.html");
 })
 
+const alert = (message, type) => {
+    console.log("working")
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
+    $("#alertPlaceholder").html(wrapper)
+}
+
 $("button").click(function () {
     event.preventDefault();
     // Disable button and activate loader
@@ -37,7 +49,10 @@ $("button").click(function () {
         console.log(data);
         // set the item in localStorage
         localStorage.setItem('session', JSON.stringify(data));
-    });
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseJSON.errorCode)
+        alert(jqXHR.responseJSON.errorText, 'danger')
+    })
 });
 
 
