@@ -1,5 +1,6 @@
 $(function () {
     $("#footer").load("footer.html");
+    $("#modal").load("modals/dashboard-modal.html");
 })
 
 
