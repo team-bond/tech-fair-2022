@@ -44,8 +44,9 @@ $("#textSubmitButton").click(function () {
         contentType: "application/json",
         encode: true,
     }).done(function (data) {
+        localStorage.setItem('session', JSON.stringify(data));
         buttonLoading(buttonContext, false);
-        $("#dashboardModal").modal('show');
+        $("#dashboardTextModal").modal('show');
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
         alert(jqXHR.responseJSON.errorText, 'danger')
@@ -68,8 +69,9 @@ $("#assetSubmitButtons").click(function () {
         data: file,
         processData: false
     }).done(function (data) {
+        localStorage.setItem('session', JSON.stringify(data));
         buttonLoading(buttonContext, false);
-        $("#ftpModal").modal('show');
+        $("#dashboardAssetModal").modal('show');
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
         alert(jqXHR.responseJSON.errorText, 'danger')
