@@ -44,6 +44,7 @@ $("#textSubmitButton").click(function () {
         contentType: "application/json",
         encode: true,
     }).done(function (data) {
+        localStorage.setItem('session', JSON.stringify(data));
         buttonLoading(buttonContext, false);
         $("#dashboardTextModal").modal('show');
     }).fail(function (jqXHR) {
@@ -68,6 +69,7 @@ $("#assetSubmitButtons").click(function () {
         data: file,
         processData: false
     }).done(function (data) {
+        localStorage.setItem('session', JSON.stringify(data));
         buttonLoading(buttonContext, false);
         $("#dashboardAssetModal").modal('show');
     }).fail(function (jqXHR) {
