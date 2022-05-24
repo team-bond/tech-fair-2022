@@ -61,13 +61,17 @@ $("#assetSubmitButtons").click(function () {
     let session = JSON.parse(localStorage.getItem('session'));
     let sessionToken = session.traceId;
 
-    var file = document.getElementById('formFileLg').files[0];
+    var file_data = $('#formFileLg').prop('files')[0];
+    var formData = new FormData();
+    formData.append('file', file_data);
 
     $.ajax({
         type: "POST",
-        url: "https://fair-bond.herokuapp.com/api/flow/content/" + sessionToken + "/asset",
-        data: file,
-        processData: false
+        url: "https://fair-bond.herokuapp.com/api/flow/content/" + sessionToken + "/asset/form",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
     }).done(function (data) {
         localStorage.setItem('session', JSON.stringify(data));
         buttonLoading(buttonContext, false);
