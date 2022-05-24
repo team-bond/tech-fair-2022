@@ -9,7 +9,6 @@ $(function () {
     }
 })
 
-
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
@@ -88,14 +87,3 @@ $("#assetSubmitButtons").click(function () {
         alert(jqXHR.responseJSON.errorText, 'danger')
     })
 });
-
-$(window).on('load', function () {
-    // let session = localStorage.getItem('session');
-    // if (session === null) {
-    //     $("#dashboardErrorModal").modal('show');
-    // }
-});
-
-// $( document ).ready(function() {
-//     console.log( "ready!" );
-// });
