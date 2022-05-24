@@ -11,10 +11,13 @@ $(function () {
 
     if (session === null) {
         window.alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
+        $("button").prop("disabled", true);
     } else if (type === 'asset' && JSON.parse(session).contentType == 'TEXT') {
         window.alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
+        $("button").prop("disabled", true);
     } else if (type === 'text' && JSON.parse(session).contentType == 'ASSET') {
         window.alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
+        $("button").prop("disabled", true);
     }
 })
 

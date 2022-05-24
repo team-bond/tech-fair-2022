@@ -6,6 +6,7 @@ $(function () {
     if (session === null) {
         $("#dashboardErrorModal").modal('show');
         window.alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
+        $("button").prop("disabled", true);
     }
 })
 
