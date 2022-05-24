@@ -1,7 +1,14 @@
 $(function () {
     $("#modal").load("modals/dashboard-modal.html");
     $("#footer").load("footer.html");
+
+    let session = localStorage.getItem('session');
+    if (session === null) {
+        $("#dashboardErrorModal").modal('show');
+        window.alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
+    }
 })
+
 
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
@@ -83,8 +90,12 @@ $("#assetSubmitButtons").click(function () {
 });
 
 $(window).on('load', function () {
-    let session = localStorage.getItem('session');
-    if (session === null) {
-        $("#dashboardErrorModal").modal('show');
-    }
+    // let session = localStorage.getItem('session');
+    // if (session === null) {
+    //     $("#dashboardErrorModal").modal('show');
+    // }
 });
+
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+// });
