@@ -10,11 +10,11 @@ $(function () {
     let session = localStorage.getItem('session');
 
     if (session === null) {
-        alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
+        window.alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
     } else if (type === 'asset' && JSON.parse(session).contentType == 'TEXT') {
-        alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
+        window.alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
     } else if (type === 'text' && JSON.parse(session).contentType == 'ASSET') {
-        alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
+        window.alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
     }
 })
 
