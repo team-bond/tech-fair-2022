@@ -2,16 +2,16 @@ $(function () {
     // Check if user has an active session
     let session = localStorage.getItem('session');
     if (session === null) {
-        window.location = "/error-no-session.html"
+        window.location = window.location.origin + "/error-no-session.html"
     }
 
     // Check if user has already uploaded a content
     let hasUploaded = localStorage.getItem('hasUploaded');
     if (hasUploaded != null) {
         if (hasUploaded === "text") {
-            window.location = "/proceed-to-dna.html"
+            window.location = window.location.origin + "/proceed-to-dna.html"
         } else {
-            window.location = "/proceed-to-mirage.html"
+            window.location = window.location.origin + "/proceed-to-mirage.html"
         }
     } else {
         $("#modal").load("modals/dashboard-modal.html");
@@ -65,7 +65,7 @@ $("#textSubmitButton").click(function () {
         localStorage.setItem('hasUploaded', "text");
         buttonLoading(buttonContext, false);
         //$("#dashboardTextModal").modal('show');
-        window.location = "/text-upload-success.html"
+        window.location = window.location.origin + "/text-upload-success.html"
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
         alert(jqXHR.responseJSON.errorText, 'danger')
@@ -96,7 +96,7 @@ $("#assetSubmitButtons").click(function () {
         localStorage.setItem('hasUploaded', "asset");
         buttonLoading(buttonContext, false);
         //$("#dashboardAssetModal").modal('show');
-        window.location = "/asset-upload-success.html"
+        window.location = window.location.origin + "/asset-upload-success.html"
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
 
