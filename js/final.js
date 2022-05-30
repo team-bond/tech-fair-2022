@@ -5,16 +5,23 @@ $(function () {
     let searchParams = new URLSearchParams(window.location.search)
     let type = searchParams.get('type')
     let session = localStorage.getItem('session');
+    let hasUploaded = localStorage.getItem('hasUploaded');
 
     if (session === null) {
         redirect("/error-no-session.html");
-    } else if (type === 'asset' && JSON.parse(session).contentType === 'TEXT') {
+    } else if (hasUploaded === null) {
+        window.alert("You have not uploaded anything yet. Please scan the QR code for uploading content in Team Bond's booth! 😊");
+        redirect("/generic-error.html");
+    }
+
+    if (type === 'asset' && JSON.parse(session).contentType === 'TEXT') {
         window.alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
         redirect("/generic-error.html");
     } else if (type === 'text' && JSON.parse(session).contentType === 'ASSET') {
         window.alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
         redirect("/generic-error.html");
     } else {
+        $("#header").load("header.html");
         $("#footer").load("footer.html");
         $("#modal").load("modals/final-modal.html");
         $("body").show();

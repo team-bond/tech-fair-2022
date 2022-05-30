@@ -1,5 +1,6 @@
 $(function () {
     $("#login-ftp-modal").load("modals/login-ftp-modal.html");
+    $("#header").load("header.html");
     $("#footer").load("footer.html");
     $("#loader").hide();
 })
