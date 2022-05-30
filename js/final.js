@@ -7,13 +7,13 @@ $(function () {
     let session = localStorage.getItem('session');
 
     if (session === null) {
-        window.location = window.location.origin + "/error-no-session.html"
+        window.location = "../error-no-session.html"
     } else if (type === 'asset' && JSON.parse(session).contentType === 'TEXT') {
         window.alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
-        window.location = window.location.origin + "/generic-error.html"
+        window.location = "../generic-error.html"
     } else if (type === 'text' && JSON.parse(session).contentType === 'ASSET') {
         window.alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
-        window.location = window.location.origin + "/generic-error.html"
+        window.location = "../generic-error.html"
     } else {
         $("#footer").load("footer.html");
         $("#modal").load("modals/final-modal.html");
