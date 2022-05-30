@@ -7,19 +7,27 @@ $(function () {
     let session = localStorage.getItem('session');
 
     if (session === null) {
-        window.location = "../error-no-session.html"
+        redirect("/error-no-session.html");
     } else if (type === 'asset' && JSON.parse(session).contentType === 'TEXT') {
         window.alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
-        window.location = "../generic-error.html"
+        redirect("/generic-error.html");
     } else if (type === 'text' && JSON.parse(session).contentType === 'ASSET') {
         window.alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
-        window.location = "../generic-error.html"
+        redirect("/generic-error.html");
     } else {
         $("#footer").load("footer.html");
         $("#modal").load("modals/final-modal.html");
         $("body").show();
     }
 })
+
+const redirect = (newUrl) => {
+    let str =  window.location.href;
+    let lastIndex = str.lastIndexOf("/");
+    let path = str.substring(0, lastIndex);
+    let new_path = path + newUrl;
+    window.location.assign(new_path);
+}
 
 const alert = (message, type) => {
     console.log("working")

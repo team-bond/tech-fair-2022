@@ -2,16 +2,16 @@ $(function () {
     // Check if user has an active session
     let session = localStorage.getItem('session');
     if (session === null) {
-        window.location = "../error-no-session.html"
+        redirect("/error-no-session.html");
     }
 
     // Check if user has already uploaded a content
     let hasUploaded = localStorage.getItem('hasUploaded');
     if (hasUploaded != null) {
         if (hasUploaded === "text") {
-            window.location = "../proceed-to-dna.html"
+            redirect("/proceed-to-dna.html");
         } else {
-            window.location = "../proceed-to-mirage.html"
+            redirect("/proceed-to-mirage.html");
         }
     } else {
         $("#modal").load("modals/dashboard-modal.html");
@@ -19,6 +19,14 @@ $(function () {
         $("body").show();
     }
 })
+
+const redirect = (newUrl) => {
+    let str =  window.location.href;
+    let lastIndex = str.lastIndexOf("/");
+    let path = str.substring(0, lastIndex);
+    let new_path = path + newUrl;
+    window.location.assign(new_path);
+}
 
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
@@ -45,6 +53,14 @@ const buttonLoading = (context, isLoading) => {
     }
 }
 
+const redirect = (newUrl) => {
+    let str =  window.location.href;
+    let lastIndex = str.lastIndexOf("/");
+    let path = str.substring(0, lastIndex);
+    let new_path = path + newUrl;
+    window.location.assign(new_path);
+}
+
 $("#textSubmitButton").click(function () {
     // Disable button and activate loader
     let buttonContext = $(this);
@@ -65,7 +81,7 @@ $("#textSubmitButton").click(function () {
         localStorage.setItem('hasUploaded', "text");
         buttonLoading(buttonContext, false);
         //$("#dashboardTextModal").modal('show');
-        window.location = "../text-upload-success.html"
+        redirect("/text-upload-success.html");
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
         alert(jqXHR.responseJSON.errorText, 'danger')
@@ -96,11 +112,11 @@ $("#assetSubmitButtons").click(function () {
         localStorage.setItem('hasUploaded', "asset");
         buttonLoading(buttonContext, false);
         //$("#dashboardAssetModal").modal('show');
-        window.location = "../asset-upload-success.html"
+        redirect("/asset-upload-success.html");
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
 
-        if (jqXHR.responseJSON.status == 400) {
+        if (jqXHR.responseJSON.status === 400) {
             alert('Please select an image to upload', 'danger')
         } else {
             alert('An unexpected error has encountered. Please try again.', 'danger')
