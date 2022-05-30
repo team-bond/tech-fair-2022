@@ -11286,18 +11286,3 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-
-#footer {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-}
