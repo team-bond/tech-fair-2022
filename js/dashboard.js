@@ -20,14 +20,6 @@ $(function () {
     }
 })
 
-const redirect = (newUrl) => {
-    let str =  window.location.href;
-    let lastIndex = str.lastIndexOf("/");
-    let path = str.substring(0, lastIndex);
-    let new_path = path + newUrl;
-    window.location.assign(new_path);
-}
-
 const alert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
