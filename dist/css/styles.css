@@ -78,8 +78,7 @@
 
 body {
   margin: 0;
-  /**font-family: var(--bs-body-font-family);**/
-  font-family: graphik,arial,helvetica,sans-serif;
+  font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -3031,7 +3030,7 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #00f;
+  background-color: #0d6efd;
   border-color: #0d6efd;
 }
 .btn-primary:hover {
@@ -11287,61 +11286,3 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-
-.wave {
-  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
-  animation-duration: 2.1s; /* Change to speed up or slow down */
-  animation-iteration-count: infinite; /* Never stop waving :) */
-  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
-  display: inline-block;
-}
-
-@keyframes wave-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(14deg);
-  } /* The following five values can be played with to make the waving more or less extreme */
-  20% {
-    transform: rotate(-8deg);
-  }
-  30% {
-    transform: rotate(14deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  } /* Reset for the last half to pause */
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-#footer {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.custom-message-header {
-  text-align: center;
-  font-size: x-large;
-  color: #0000A4;
-}
-
-/*
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-}
-*/
