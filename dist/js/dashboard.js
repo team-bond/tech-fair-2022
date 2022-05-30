@@ -15,6 +15,7 @@ $(function () {
         }
     } else {
         $("#modal").load("modals/dashboard-modal.html");
+        $("#header").load("header.html");
         $("#footer").load("footer.html");
         $("body").show();
     }
