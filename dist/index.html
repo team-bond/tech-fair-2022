@@ -25,17 +25,20 @@
     <div class="text-center mt-5">
         <span id="alertPlaceholder"></span>
         <form action="/" id="signUpForm">
-            <h1 class="h3 mb-3 fw-normal">Hello <span className="wave">👋🏻</span> Who are you?</h1>
+            <h1 class="h3 mb-3 fw-normal">Hello there! <span className="wave">👋🏻</span></h1>
             <div class="form-floating">
                 <input type="text" class="form-control" id="userName" name="userName" placeholder="Timmy" required>
-                <label for="userName">Enter your name here!</label>
+                <label for="userName">What's your name?</label>
             </div>
+            <br /><br />
+            <h2 class="h3 mb-3 fw-normal">If you were a product content, where do you want to go?</h2>
 
-            <h2 class="h3 mb-3 fw-normal">Where are you from?</h2>
-
-            <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-lg btn-primary" value="ftp" id="ftpButton" type="submit">FTP</button>
-                <button class="btn btn-lg btn-primary" value="api" id="apiButton" type="submit">API</button>
+            <div id="sourceButtons" class="d-grid gap-2 d-md-block">
+                <button class="btn btn-lg btn-primary" value="ftp" id="ftpButton" type="submit">Put me in the FTP</button>
+                <button class="btn btn-lg btn-primary" value="api" id="apiButton" type="submit">Send me via API</button>
+            </div>
+            <div id="loader">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
             </div>
         </form>
 

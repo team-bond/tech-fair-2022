@@ -1,6 +1,7 @@
 $(function () {
     $("#login-ftp-modal").load("modals/login-ftp-modal.html");
     $("#footer").load("footer.html");
+    $("#loader").hide();
 })
 
 const alert = (message, type) => {
@@ -18,19 +19,17 @@ const alert = (message, type) => {
 $("button").click(function () {
     event.preventDefault();
     // Disable button and activate loader
-    $("button").prop("disabled", true);
-    $(this).html(
-        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
-    );
+    $("#sourceButtons").prop("disabled", true);
+    $("#loader").show();
 
     let source = $(this).val();
-    let name =  $('#userName').val()
-    let modalSource = 'API';
+    let name =  $('#userName').val() + "!";
+    let modalSource = 'API...';
     $("#ftpImages").hide();
     $("#apiImages").show();
 
-    if (source == "ftp"){
-        modalSource = 'FTP Server'
+    if (source == "ftp") {
+        modalSource = 'FTP server...'
         $("#ftpImages").show();
         $("#apiImages").hide();
     }
@@ -52,6 +51,8 @@ $("button").click(function () {
     }).fail(function (jqXHR, textStatus, errorThrown) {
         console.log(jqXHR.responseJSON.errorCode)
         alert(jqXHR.responseJSON.errorText, 'danger')
+        $("#loader").hide();
+        $("#sourceButtons").attr("disabled", false);
     })
 });
 

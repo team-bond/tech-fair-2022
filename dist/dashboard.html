@@ -11,7 +11,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
-<body>
+<body style="display: none;">
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg  bg-dark">
     <a class="navbar-brand" href="/tech-fair-2022">
@@ -24,6 +24,10 @@
 <div class="container">
     <div class="text-center mt-5">
         <span id="alertPlaceholder"></span>
+        <div>
+            Here you can choose to become either a text or an image. Post some text or better yet a selfie and see it in our (fake) webshop! 😉
+        </div>
+        <br />
         <ul class="nav nav-tabs nav-fill" id="tabs" role="tablist">
             <li class="nav-item" role="presentation" id="1">
                 <button class="nav-link active" id="text-tab" data-bs-toggle="tab" data-bs-target="#text-tab-pane"
@@ -39,25 +43,19 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="text-tab-pane" role="tabpanel" aria-labelledby="text-tab" tabindex="0">
                 <div class="mb-3">
-                    <label for="textArea" class="form-label">Enter any text here you want to see in
-                        our (fake) Webshop 😉 </label>
-                    <textarea class="form-control" id="textArea" rows="3"></textarea>
-                    <label for="formFileLg" class="form-label" style="font-size: 10px;margin-top: 10px;">Here at bol.com we take your privacy seriously,
-                        and will only use your personal information (either your uploaded text or images) to display our fake webshop and
+                    <textarea class="form-control" id="textArea" rows="3" placeholder="Maybe some shoutout?"></textarea>
+                    <label for="formFileLg" class="form-label" style="font-size: 10px;margin-top: 10px;"><b>Disclaimer:</b> Here at bol.com we take your privacy seriously and will only use your personal information (either your uploaded text or images) to display in our fake webshop and
                         will be deleted later on. </label>
                 </div>
-                <button class="btn btn-lg btn-primary" id="textSubmitButton">Submit</button>
+                <button class="btn btn-lg btn-primary" id="textSubmitButton">Upload me!</button>
             </div>
             <div class="tab-pane fade" id="asset-tab-pane" role="tabpanel" aria-labelledby="asset-tab" tabindex="0">
                 <div class="mb-3">
-                    <label for="formFileLg" class="form-label">Upload any picture or better yet a selfie! And see it in
-                        our (fake) Webshop 😉 </label>
-                    <input class="form-control form-control-lg" id="formFileLg" type="file" accept="image/png, image/jpeg" >
-                    <label for="formFileLg" class="form-label" style="font-size: 10px;margin-top: 10px;">Here at bol.com we take your privacy seriously,
-                        and will only use your personal information (either your uploaded text or images) to display our fake webshop and
+                    <input class="form-control form-control-lg" id="formFileLg" type="file" accept="image/png, image/jpeg">
+                    <label for="formFileLg" class="form-label" style="font-size: 10px;margin-top: 10px;"><b>Disclaimer:</b> Here at bol.com we take your privacy seriously and will only use your personal information (either your uploaded text or images) to display in our fake webshop and
                         will be deleted later on. </label>
                 </div>
-                <button class="btn btn-lg btn-primary" id="assetSubmitButtons">Submit</button>
+                <button class="btn btn-lg btn-primary" id="assetSubmitButtons">Upload me!</button>
             </div>
         </div>
 

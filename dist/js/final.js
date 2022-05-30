@@ -1,7 +1,4 @@
 $(function () {
-    $("#footer").load("footer.html");
-    $("#modal").load("modals/final-modal.html");
-
     // Text URL: http://localhost:3000/final.html?type=text
     // Asset URL: http://localhost:3000/final.html?type=asset
 
@@ -10,14 +7,17 @@ $(function () {
     let session = localStorage.getItem('session');
 
     if (session === null) {
-        window.alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
-        $("button").prop("disabled", true);
-    } else if (type === 'asset' && JSON.parse(session).contentType == 'TEXT') {
+        window.location = "/error-no-session.html"
+    } else if (type === 'asset' && JSON.parse(session).contentType === 'TEXT') {
         window.alert("You have scanned the wrong QR code. Please go to Team DNA stand and scan the QR code there! 😊");
-        $("button").prop("disabled", true);
-    } else if (type === 'text' && JSON.parse(session).contentType == 'ASSET') {
+        window.location = "/generic-error.html"
+    } else if (type === 'text' && JSON.parse(session).contentType === 'ASSET') {
         window.alert("You have scanned the wrong QR code. Please go to Team Mirage stand and scan the QR code there! 😊");
-        $("button").prop("disabled", true);
+        window.location = "/generic-error.html"
+    } else {
+        $("#footer").load("footer.html");
+        $("#modal").load("modals/final-modal.html");
+        $("body").show();
     }
 })
 
@@ -63,6 +63,7 @@ $("button").click(function () {
     }).done(function (data) {
         buttonLoading(buttonContext, false);
         localStorage.removeItem('session');
+        localStorage.removeItem('hasUploaded');
     }).fail(function (jqXHR, textStatus, errorThrown) {
         console.log(jqXHR.responseJSON.errorCode)
         alert(jqXHR.responseJSON.errorText, 'danger')
