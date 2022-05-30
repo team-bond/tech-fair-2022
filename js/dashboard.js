@@ -1,12 +1,22 @@
 $(function () {
-    $("#modal").load("modals/dashboard-modal.html");
-    $("#footer").load("footer.html");
-
+    // Check if user has an active session
     let session = localStorage.getItem('session');
     if (session === null) {
-        $("#dashboardErrorModal").modal('show');
-        window.alert("You don't have a session with us! Please come near the Team BOND stand or contact our EOD");
-        $("button").prop("disabled", true);
+        window.location = "/error-no-session.html"
+    }
+
+    // Check if user has already uploaded a content
+    let hasUploaded = localStorage.getItem('hasUploaded');
+    if (hasUploaded != null) {
+        if (hasUploaded === "text") {
+            window.location = "/proceed-to-dna.html"
+        } else {
+            window.location = "/proceed-to-mirage.html"
+        }
+    } else {
+        $("#modal").load("modals/dashboard-modal.html");
+        $("#footer").load("footer.html");
+        $("body").show();
     }
 })
 
@@ -51,9 +61,11 @@ $("#textSubmitButton").click(function () {
         contentType: "application/json",
         encode: true,
     }).done(function (data) {
-        localStorage.setItem('session', JSON.stringify(data));
+        localStorage.setItem('session', JSON.stringify(data)); // Set text session
+        localStorage.setItem('hasUploaded', "text");
         buttonLoading(buttonContext, false);
-        $("#dashboardTextModal").modal('show');
+        //$("#dashboardTextModal").modal('show');
+        window.location = "/text-upload-success.html"
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
         alert(jqXHR.responseJSON.errorText, 'danger')
@@ -80,11 +92,18 @@ $("#assetSubmitButtons").click(function () {
         contentType: false,
         processData: false,
     }).done(function (data) {
-        localStorage.setItem('session', JSON.stringify(data));
+        localStorage.setItem('session', JSON.stringify(data)); // Set asset session
+        localStorage.setItem('hasUploaded', "asset");
         buttonLoading(buttonContext, false);
-        $("#dashboardAssetModal").modal('show');
+        //$("#dashboardAssetModal").modal('show');
+        window.location = "/asset-upload-success.html"
     }).fail(function (jqXHR) {
         buttonLoading(buttonContext, false);
-        alert(jqXHR.responseJSON.errorText, 'danger')
+
+        if (jqXHR.responseJSON.status == 400) {
+            alert('Please select an image to upload', 'danger')
+        } else {
+            alert('An unexpected error has encountered. Please try again.', 'danger')
+        }
     })
 });
