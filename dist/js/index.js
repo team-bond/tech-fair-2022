@@ -3,6 +3,12 @@ $(function () {
     $("#header").load("header.html");
     $("#footer").load("footer.html");
     $("#loader").hide();
+
+    if (window.location.pathname === "/"){
+        localStorage.removeItem('session');
+        localStorage.removeItem('hasUploaded');
+    }
+
 })
 
 const alert = (message, type) => {
@@ -59,6 +65,4 @@ $("button").click(function () {
 
 
 $(document).ready(function () {
-    localStorage.removeItem('session');
-    localStorage.removeItem('hasUploaded');
 });
