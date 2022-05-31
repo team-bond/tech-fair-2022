@@ -59,5 +59,6 @@ $("button").click(function () {
 
 
 $(document).ready(function () {
-
+    localStorage.removeItem('session');
+    localStorage.removeItem('hasUploaded');
 });
